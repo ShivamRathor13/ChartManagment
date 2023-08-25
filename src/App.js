@@ -1,15 +1,11 @@
-// App.js
 import React, { useState, useEffect } from "react";
-
+import { Route, Routes, Link } from "react-router-dom";
+import Sidebar from "./Sidebar";
 import Contact from "./component/contatctPage/contact";
 import Chart from "./component/chartPage/chart";
-import { Route, Routes } from "react-router-dom";
-import Sidebar from "./Sidebar";
 import WorldwideStatistics from "./component/WorldWideStatistics";
 import CountryDataStatics from "./component/CountryDataStatics";
 import CaseDataWithDate from "./component/CaseDataWithDate";
-
-// import Routel from "./Route";
 
 function App() {
   const [worldwideData, setWorldwideData] = useState({});
@@ -54,35 +50,47 @@ function App() {
       </div>
     );
   }
-  // console.log(dateData);
+
   return (
     <div className="App">
-      {/* <Sidebar /> */}
+      <Sidebar />
       <div className="content">
-        {/* <Contact /> */}
-        <Sidebar />
-        {/* <Routel /> */}
-        {/* <Link to="/Contact">contact</Link> */}
-        {/* <Contact /> */}
-        {/* <Link to="/Contact">Contat</Link> */}
-        {/* <WorldwideStatistics worldwideData={worldwideData} /> */}
+        <Routes>
+          {/* Home Page */}
+          <Route path="/" element={<HomePage />} />
+          <Route path="/Contact" element={<Contact />} />
+          <Route path="/chart" element={<Chart />} />
+          <Route
+            path="/Worldwidedata"
+            element={<WorldwideStatistics worldwideData={worldwideData} />}
+          />
+          <Route
+            path="/Countrydata"
+            element={<CountryDataStatics countryData={countryData} />}
+          />
+          <Route
+            path="/Casedatawithdate"
+            element={<CaseDataWithDate dateData={dateData} />}
+          />
+        </Routes>
       </div>
-      <Routes>
-        <Route path="/Contact" element={<Contact />} />
-        <Route path="/chart" element={<Chart />} />
-        <Route
-          path="/Worldwidedata"
-          element={<WorldwideStatistics worldwideData={worldwideData} />}
-        />
-        <Route
-          path="/Countrydata"
-          element={<CountryDataStatics countryData={countryData} />}
-        />
-        <Route
-          path="/Casedatawithdate"
-          element={<CaseDataWithDate dateData={dateData} />}
-        />
-      </Routes>
+    </div>
+  );
+}
+
+function HomePage() {
+  return (
+    <div className="home mt-5" style={{ textAlign: "center" }}>
+      <h2>Welcome to Taiyo.Ai Dashboard</h2>
+      <p>Click on "Add Contact" or "Charts" to get started.</p>
+      <div className="d-flex justify-content-center">
+        <Link to="/Contact" className="btn" style={{ color: "blue" }}>
+          Add Contact
+        </Link>
+        <Link to="/chart" className="btn" style={{ color: "blue" }}>
+          Charts
+        </Link>
+      </div>
     </div>
   );
 }
