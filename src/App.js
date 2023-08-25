@@ -3,11 +3,13 @@ import React, { useState, useEffect } from "react";
 
 import Contact from "./component/contatctPage/contact";
 import Chart from "./component/chartPage/chart";
-import { BrowserRouter as Route, Routes } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import Sidebar from "./Sidebar";
 import WorldwideStatistics from "./component/WorldWideStatistics";
 import CountryDataStatics from "./component/CountryDataStatics";
 import CaseDataWithDate from "./component/CaseDataWithDate";
+
+// import Routel from "./Route";
 
 function App() {
   const [worldwideData, setWorldwideData] = useState({});

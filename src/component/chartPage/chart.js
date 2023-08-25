@@ -23,12 +23,12 @@ const Chart = () => {
       <Nav>
         <Nav.Item>
           <Link to="/Worldwidedata" className="nav-link">
-            WorldWideStatics
+            World Wide Statics
           </Link>
         </Nav.Item>
         <Nav.Item>
           <Link to="/Countrydata" className="nav-link">
-            CountrySpecificData
+            Country Specific Data
           </Link>
         </Nav.Item>
         <Nav.Item>
